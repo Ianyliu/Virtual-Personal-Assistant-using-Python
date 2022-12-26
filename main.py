@@ -62,7 +62,7 @@ def take_user_input():
     try:
         print('Recognizing...')
         query = r.recognize_google(audio, language='en-in')
-        if not 'exit' in query or 'stop' in query:
+        if 'exit' not in query or 'stop' in query:
             speak(choice(opening_text))
         else:
             hour = datetime.now().hour
@@ -142,14 +142,14 @@ if __name__ == '__main__':
                 speak("Something went wrong while I was sending the mail. Please check the error logs sir.")
 
         elif 'joke' in query:
-            speak(f"Hope you like this one sir")
+            speak("Hope you like this one sir")
             joke = get_random_joke()
             speak(joke)
             speak("For your convenience, I am printing it on the screen sir.")
             pprint(joke)
 
         elif "advice" in query:
-            speak(f"Here's an advice for you, sir")
+            speak("Here's an advice for you, sir")
             advice = get_random_advice()
             speak(advice)
             speak("For your convenience, I am printing it on the screen sir.")
@@ -161,7 +161,7 @@ if __name__ == '__main__':
             print(*get_trending_movies(), sep='\n')
 
         elif 'news' in query:
-            speak(f"I'm reading out the latest news headlines, sir")
+            speak("I'm reading out the latest news headlines, sir")
             speak(get_latest_news())
             speak("For your convenience, I am printing it on the screen sir.")
             print(*get_latest_news(), sep='\n')
